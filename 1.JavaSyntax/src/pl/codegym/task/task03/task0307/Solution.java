@@ -8,7 +8,7 @@ public class Solution {
     public static void main(String[] args) {
         //tutaj wpisz swój kod
         for(int i = 0; i < 5; i++) {
-            Zerg zerg = new Zerg();
+            Zerg zerg1 = new Zerg();
 
         }
     }
