@@ -9,15 +9,20 @@ import java.util.HashMap;
 public class Solution {
     public static void main(String[] args) {
         //tutaj wpisz swój kod
-        HashMap<String, Zerg> zergPopulation = new HashMap<>();
-        HashMap<String, Zerg> protossPopulation = new HashMap<>();
-        HashMap<String, Zerg> terraninPopulation = new HashMap<>();
+        Zerg zerg0 = new Zerg();
+        Zerg zerg1 = new Zerg();
+        Zerg zerg2 = new Zerg();
+        Zerg zerg3 = new Zerg();
+        Zerg zerg4 = new Zerg();
 
-        for(int i = 0; i < 5; i++) {
-            zergPopulation.put("zerg" + i, new Zerg());
-            protossPopulation.put("protos" + i, new Zerg());
-            terraninPopulation.put("terranin" + i, new Zerg());
-        }
+        Protoss protoss0 = new Protoss();
+        Protoss protoss1 = new Protoss();
+        Protoss protoss2 = new Protoss();
+
+        Terranin terranin0 = new Terranin();
+        Terranin terranin1 = new Terranin();
+        Terranin terranin2 = new Terranin();
+        Terranin terranin3 = new Terranin();
     }
 
     public static class Zerg {
