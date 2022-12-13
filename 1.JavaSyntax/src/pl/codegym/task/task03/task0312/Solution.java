@@ -14,5 +14,6 @@ public class Solution {
         //tutaj wpisz swój kod
         System.out.println(konwertujNaSekundy(1));
         System.out.println(konwertujNaSekundy(24));
+
     }
 }
