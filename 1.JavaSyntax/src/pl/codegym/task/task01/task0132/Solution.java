@@ -17,7 +17,7 @@ public class Solution {
         int numMinusHundreds = liczba - (hundreds * 100);
         int tens = numMinusHundreds / 10;
         int numMinusTens = numMinusHundreds - (tens * 10);
-        int unity = numMinusTens / 1;
+        int unity = numMinusTens;
         return hundreds + tens + unity;
     }
 }
