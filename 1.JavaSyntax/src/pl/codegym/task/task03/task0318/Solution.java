@@ -12,10 +12,12 @@ public class Solution {
         //tutaj wpisz swój kod
         String s1 = " przejmie władzę nad światem za ";
         String s2 = " lat. Mua ha ha!";
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
-        int year = scanner.nextInt();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//        System.out.println("Wprowadź liczbę:");
+        int year = Integer.parseInt(reader.readLine());
+//        System.out.println("Wprowadź imię:");
+        String name = reader.readLine();
         System.out.println(name + s1 + year + s2);
-        scanner.close();
+
     }
 }
