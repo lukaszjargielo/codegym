@@ -22,9 +22,9 @@ public class Solution {
         int temp;
         int size = tab.length;
 
-        for (int i = 0; i < tab.length -1; i++) {
+        for (int i = 1; i < tab.length; i++) {
 
-            for (int j = size - 1; j > i; j--) {
+            for (int j = size - 1; j >= i; j--) {
 
                 if (tab[j] > tab[j - 1]) {
 
