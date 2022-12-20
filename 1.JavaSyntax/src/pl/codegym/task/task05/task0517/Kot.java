@@ -6,6 +6,7 @@ Tworzenie kotów
 
 public class Kot {
     //tutaj wpisz swój kod
+
     private String imie;
     private String adres;
     private String kolor;
