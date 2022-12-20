@@ -14,8 +14,10 @@ public class Kolo {
         System.out.println(kolo.kolor.getOpis());
     }
 
-    public void Kolo() {
+    public /*void*/ Kolo() {
+
         kolor = new Kolor();
+
     }
 
     public class Kolor {
