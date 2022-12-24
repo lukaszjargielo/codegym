@@ -3,10 +3,12 @@ package pl.codegym.task.task07.task0706;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 /* 
 Ulice i domy
 */
+
 
 public class Solution {
     public static void main(String[] args) throws Exception {
@@ -14,6 +16,7 @@ public class Solution {
         int[] arr = new int[15];
         int sumEven = 0;
         int sumOdd = 0;
+
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
