@@ -1,6 +1,8 @@
 package pl.codegym.task.task08.task0817;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /* 
 Powtórzenia nie są potrzebne
@@ -21,83 +23,29 @@ public class Solution {
         surnameAndNameMap.put("Cipa", "Henryk");
         surnameAndNameMap.put("Grzegorzyca", "Henryk");
         return surnameAndNameMap;
-
     }
 
     public static void usunPowtorzoneImiona(Map<String, String> mapa) {
         //tutaj wpisz swój kod
-        HashMap<String, String> mapCopy = new HashMap<>(mapa);
-
-        System.out.println(mapCopy.values());
-//        Collections.sort(mapCopy.values());
-
-
-//        for (Map.Entry<String, String> para : mapa.entrySet()) {
-//            String name = para.getValue()
-//            mapa.containsValue()
-
+        HashMap<String,String> mapCopy = new HashMap<>(mapa);
+        Iterator<Map.Entry<String, String>> iter = mapCopy.entrySet().iterator();
+        while (iter.hasNext()) {
+            Map.Entry<String,String> pair = iter.next();
+            String template =  pair.getValue();
+            int counter = 0;
+        for (String name : mapCopy.values()) {
+            if(name.equals(template)) {
+                counter++;
+                if (counter > 1) {
+                    usunElementZMapPoWartosci(mapa, name);
+                    counter = 0;
+                }
+            }
 
         }
+        }
 
-
-
-
-
-
-
-
-
-
-
-//    HashMap<String,String> mapCopy = new HashMap<>(mapa);
-//    Iterator<Map.Entry<String, String>> iterator = mapa.entrySet().iterator();
-//        for (Map.Entry<String, String> para : mapCopy.entrySet()) {
-//        String name = para.getValue();
-//        while (iterator.hasNext()) {
-//            Map.Entry<String, String> pair = iterator.next();
-//            String theSameName = pair.getValue();
-//            if(name.contains(theSameName)) {
-//                iterator.remove();
-//
-//
-//            }
-//        }
-//
-//    }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-//
-//
-//        HashMap<String,String> mapCopy = new HashMap<>(mapa);
-//        Iterator<Map.Entry<String, String>> iterator = mapa.entrySet().iterator();
-
-//        while (iterator.hasNext()) {
-//            Map.Entry<String, String> pair1 = iterator.next();
-//            String name = pair1.getValue();
-//            for (Map.Entry<String, String> pair2 : mapCopy.entrySet()){
-//                if(pair2.getValue().contains(name)) {
-//                    mapa.remove(pair2.getKey());
-//            }
-//
-//
-//
-//            }
-//
-//        }
-
-
-  //  }
+    }
 
     public static void usunElementZMapPoWartosci(Map<String, String> mapa, String wartosc) {
         HashMap<String, String> kopia = new HashMap<String, String>(mapa);
@@ -109,8 +57,15 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-            HashMap<String, String> map = Solution.utworzMap();
-            Solution.usunPowtorzoneImiona(map);
-        System.out.println(map);
+//        HashMap<String,String> map = Solution.utworzMap();
+//        for (Map.Entry<String, String> pair : map.entrySet()) {
+//            System.out.println(pair);
+//        }
+//        System.out.println();
+//        Solution.usunPowtorzoneImiona(map);
+//
+//        for (Map.Entry<String, String> pair : map.entrySet()) {
+//            System.out.println(pair);
+//        }
     }
 }
