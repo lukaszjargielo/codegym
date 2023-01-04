@@ -27,6 +27,7 @@ public class Solution {
         method4();
         //tutaj wpisz swój kod
         StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+
         return stackTraceElements[2].getMethodName();
     }
 
