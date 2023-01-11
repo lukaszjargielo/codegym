@@ -19,44 +19,35 @@ public class Solution {
         String imie = "";
 
         while (true) {
-            try {
-                String input = reader.readLine();
-                if (input.isEmpty()) {
-//                if (imie.isEmpty()) {
-//                    mapa.put("null",id);
+
+            System.out.println("Podaj liczbę");
+            String input = reader.readLine();
+            if (input.isEmpty()) {
                 break;
             }
-//              System.out.println("Podaj liczbę");
-//            id = Integer.parseInt(reader.readLine());
-                id = Integer.parseInt(input);
-//              System.out.println("Podaj imię");
-                imie = reader.readLine();
 
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            }
+            id = Integer.parseInt(input);
+            System.out.println("Podaj imię");
+            imie = reader.readLine();
+
             if (!list.contains(imie)) {
                 list.add(imie);
                 mapa.put(imie, id);
-//            } else {
-//                String imie2 = imie;
-//                while (imie.equals(imie2) || list.contains(imie2) ) {
-//                    System.out.println("Wprowadź inne imię:");
-//                    imie2 = reader.readLine();
+            } else {
+                String imie2 = imie;
+                while (imie.equals(imie2) || list.contains(imie2)) {
+                    System.out.println("Wprowadź inne imię:");
+                    imie2 = reader.readLine();
+                }
+                list.add(imie2);
+                mapa.put(imie2, id);
+
             }
-//                list.add(imie2);
-//                mapa.put(imie2, id);
 
-//            }
-
-
-
-//        System.out.println("Id=" + id + " Imię=" + imie);
         }
-        for (Map.Entry<String, Integer> pair : mapa.entrySet()) {
-            System.out.println(pair.getValue() + " " + pair.getKey());
-//            System.out.println(pair.getKey() + " " + pair.getValue());
 
+        for (Map.Entry<String, Integer> pair : mapa.entrySet()) {
+            System.out.println(pair.getKey() + " " + pair.getValue());
         }
     }
 }
