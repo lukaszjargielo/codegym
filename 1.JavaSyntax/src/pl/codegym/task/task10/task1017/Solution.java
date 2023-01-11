@@ -27,11 +27,10 @@ public class Solution {
         //tutaj wpisz swój kod
         int i;
         try {
-<<<<<<< HEAD
-           /* return*/ i = lista.get(indeks);
-=======
+
+
            /* return*/ i = lista.get(indeks); //here we should insert return statement
->>>>>>> 560fab4 (A task with ArrayList and safety element of ArrayList getting method with use of exception try-catch statement.)
+
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
             return wartoscDomyslna;
