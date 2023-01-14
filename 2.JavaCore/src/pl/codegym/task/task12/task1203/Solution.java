@@ -31,6 +31,7 @@ public class Solution {
     public static class Dog extends Pet {
         @Override
         public Pet getChild() {
+
             return new Dog();
         }
     }
