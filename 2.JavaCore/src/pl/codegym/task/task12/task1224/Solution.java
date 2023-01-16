@@ -21,6 +21,7 @@ public class Solution {
             case "Tiger":
             case "Lion":
             case "Bull": {
+
                 return s;
             }
             default:
