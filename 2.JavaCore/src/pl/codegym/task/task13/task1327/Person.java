@@ -12,17 +12,20 @@ public class Person implements TurnipItem {
 
     public void pull(Person second) {
 
-        System.out.println(String.format("%s behind %s", name, second.getName()));
+        System.out.println(String.format("%s behind %s", name, second.getPrivateName()));
     }
-
 
     @Override
     public String getName() {
+        return this.name;
+    }
+
+    public String getPrivateName() {
 
         return name;
     }
 
-    public void setName(String name) {
+    public void setPrivateName(String name) {
 
         this.name = name;
     }
