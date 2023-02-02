@@ -21,6 +21,7 @@ Zadanie z algorytmami
 //            return 0;
 //        }
 //
+//
 //    }
 //}
 
@@ -73,26 +74,17 @@ public class Solution /*extends MyComparator*/ {
         for (String s : tablica) {
             if (isLiczba(s)) {
                 tablicaKopia[i] = String.valueOf(listInt.get(i));
-                if (i < listInt.size() - 1) {
+                if(i < listInt.size() - 1 ){
                     i++;
                 }
-            } else {
+            } else{
                 tablicaKopia[j] = listStr.get(j);
-                if (j < listStr.size() - 1) {
+                if(j < listStr.size() - 1) {
                     j++;
                 }
             }
         }
         tablica = tablicaKopia;
-
-        for (String s : tablica) {
-            System.out.println(s);
-        }
-        System.out.println("---------------");
-
-        for (String s : tablicaKopia) {
-            System.out.println(s);
-        }
 
     }
 //    public static boolean isMniejszeOd(Integer a, Integer b) {
