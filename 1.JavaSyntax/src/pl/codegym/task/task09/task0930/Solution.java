@@ -4,28 +4,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 /* 
 Zadanie z algorytmami
 */
 
-//class MyComparator implements Comparator<Integer> {
-//    @Override
-//    public int compare(Integer o1, Integer o2) {
-//        if (o1 < o2) {
-//            return 1;
-//        } else if (o1 > o2) {
-//            return -1;
-//        } else {
-//            return 0;
-//        }
-//
-//
-//    }
-//}
-
-public class Solution /*extends MyComparator*/ {
+public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<String> lista = new ArrayList<String>();
@@ -47,56 +31,51 @@ public class Solution /*extends MyComparator*/ {
 
     public static void sortuj(String[] tablica) {
         // tutaj wpisz swój kod
-        ArrayList<Integer> listInt = new ArrayList<>();
-        ArrayList<String> listStr = new ArrayList<>();
-        for (String s : tablica) {
-            if (isLiczba(s)) {
-                listInt.add(Integer.parseInt(s));
-            } else {
-                listStr.add(s);
-            }
-        }
-//            listInt.sort(new MyComparator());
-//            Collections.sort(listStr);
-        Collections.sort(listInt);
-        Collections.reverse(listInt);
 
-        for (int i = 0; i < listStr.size() - 1; i++) {
-            for (int j = (listStr.size() - 1); j > i; j--) {
-                if (!isWiekszeOd(listStr.get(j), listStr.get(j - 1))) {
-                    Collections.swap(listStr, j, j - 1);
-                }
-            }
-        }
-        String[] tablicaKopia = new String[tablica.length];
-        int i = 0;
-        int j = 0;
+        String[] tablicaCopy = new String[tablica.length];
+        tablicaCopy = tablica;
+        ArrayList<String> stringArrayList = new ArrayList<>();
+        ArrayList<Integer> integerArrayList = new ArrayList<>();
         for (String s : tablica) {
             if (isLiczba(s)) {
-                tablicaKopia[i] = String.valueOf(listInt.get(i));
-                if(i < listInt.size() - 1 ){
-                    i++;
-                }
-            } else{
-                tablicaKopia[j] = listStr.get(j);
-                if(j < listStr.size() - 1) {
-                    j++;
+                integerArrayList.add(Integer.parseInt(s));
+            } else {
+                stringArrayList.add(s);
+            }
+        }
+        for (int i = 0; i < stringArrayList.size() - 1; i++) {
+            for (int j = stringArrayList.size() - 1; j > i; j--) {
+                String a = stringArrayList.get(j-1);
+                String b = stringArrayList.get(j);
+                if (isWiekszeOd(a, b)) {
+
+                    Collections.swap(stringArrayList, j, j - 1);
                 }
             }
         }
-        tablica = tablicaKopia;
+        Collections.sort(integerArrayList);
+        Collections.reverse(integerArrayList);
+
+        int intCount = 0;
+        int strCount = 0;
+        for (int i = 0; i < tablica.length - 1; i++) {
+            if (isLiczba(tablica[i])) {
+                tablicaCopy[i] = String.valueOf(integerArrayList.get(intCount++));
+            } else {
+                tablicaCopy[i] = stringArrayList.get(strCount++);
+            }
+
+            tablica = tablicaCopy;
+        }
 
     }
-//    public static boolean isMniejszeOd(Integer a, Integer b) {
-//
-//        return a.compareTo(b) < 0;
-//    }
 
     // Metoda porównywania ciągów: 'a' jest większe niż 'b'
     public static boolean isWiekszeOd(String a, String b) {
 
         return a.compareTo(b) > 0;
     }
+
 
     // Czy przekazywany ciąg jest liczbą?
     public static boolean isLiczba(String s) {
