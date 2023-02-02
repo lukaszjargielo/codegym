@@ -30,45 +30,67 @@ public class Solution {
     }
 
     public static void sortuj(String[] tablica) {
-        // tutaj wpisz swój kod
-
-        String[] tablicaCopy = new String[tablica.length];
-        tablicaCopy = tablica;
-        ArrayList<String> stringArrayList = new ArrayList<>();
-        ArrayList<Integer> integerArrayList = new ArrayList<>();
-        for (String s : tablica) {
-            if (isLiczba(s)) {
-                integerArrayList.add(Integer.parseInt(s));
-            } else {
-                stringArrayList.add(s);
-            }
-        }
-        for (int i = 0; i < stringArrayList.size() - 1; i++) {
-            for (int j = stringArrayList.size() - 1; j > i; j--) {
-                String a = stringArrayList.get(j-1);
-                String b = stringArrayList.get(j);
-                if (isWiekszeOd(a, b)) {
-
-                    Collections.swap(stringArrayList, j, j - 1);
+        for (int i = 0; i < tablica.length; i++) {
+            for (int j = i + 1; j < tablica.length; j++) {
+                if (isLiczba(tablica[i]) && isLiczba(tablica[j])) {
+                    if (Integer.parseInt(tablica[i]) < Integer.parseInt(tablica[j])) {
+                        String temp = tablica[i];
+                        tablica[i] = tablica[j];
+                        tablica[j] = temp;
+                    }
+                } else if (!isLiczba(tablica[i]) && !isLiczba(tablica[j])) {
+                    if (isWiekszeOd(tablica[i], tablica[j])) {
+                        String temp = tablica[i];
+                        tablica[i] = tablica[j];
+                        tablica[j] = temp;
+                    }
                 }
             }
         }
-        Collections.sort(integerArrayList);
-        Collections.reverse(integerArrayList);
-
-        int intCount = 0;
-        int strCount = 0;
-        for (int i = 0; i < tablica.length - 1; i++) {
-            if (isLiczba(tablica[i])) {
-                tablicaCopy[i] = String.valueOf(integerArrayList.get(intCount++));
-            } else {
-                tablicaCopy[i] = stringArrayList.get(strCount++);
-            }
-
-            tablica = tablicaCopy;
-        }
-
     }
+
+        // tutaj wpisz swój kod
+//
+//        String[] tablicaCopy = new String[tablica.length];
+//        tablicaCopy = tablica;
+//        ArrayList<String> stringArrayList = new ArrayList<>();
+//        ArrayList<Integer> integerArrayList = new ArrayList<>();
+//        for (String s : tablica) {
+//            if (isLiczba(s)) {
+//                integerArrayList.add(Integer.parseInt(s));
+//            } else {
+//                stringArrayList.add(s);
+//            }
+//        }
+//        for (int i = 0; i < stringArrayList.size() - 1; i++) {
+//            for (int j = stringArrayList.size() - 1; j > i; j--) {
+//                String a = stringArrayList.get(j-1);
+//                String b = stringArrayList.get(j);
+//                if (isWiekszeOd(a, b)) {
+//                    Collections.swap(stringArrayList, j, j - 1);
+//
+////                    stringArrayList.set(j,a);
+////                    stringArrayList.set(j-1,b);
+//
+//                }
+//            }
+//        }
+//        Collections.sort(integerArrayList);
+//        Collections.reverse(integerArrayList);
+//
+//        int intCount = 0;
+//        int strCount = 0;
+//        for (int i = 0; i < tablica.length - 1; i++) {
+//            if (isLiczba(tablica[i])) {
+//                tablicaCopy[i] = String.valueOf(integerArrayList.get(intCount++));
+//            } else {
+//                tablicaCopy[i] = stringArrayList.get(strCount++);
+//            }
+//
+//            tablica = tablicaCopy;
+//        }
+//
+//    }
 
     // Metoda porównywania ciągów: 'a' jest większe niż 'b'
     public static boolean isWiekszeOd(String a, String b) {
